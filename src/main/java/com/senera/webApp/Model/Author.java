@@ -1,6 +1,7 @@
 package com.senera.webApp.Model;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -17,17 +18,17 @@ public class Author {
     private String firstName;
     private String lastName;
 
-    @ManyToMany(mappedBy = "authhors")
-    private Set<Book> books;
+    @ManyToMany(mappedBy = "authors")
+    private Set<Book> books = new HashSet<>();
 
 
     public Author() {
     }
 
-    public Author(String firstName, String lastName, Set<Book> books) {
+    public Author(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.books = books;
+
     }
 
 
